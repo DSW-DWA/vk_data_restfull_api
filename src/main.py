@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from api import endpoints
-from database import Database
+from vk_api import endpoints
+from vk_api.database import Database
 
 db = Database()
 
