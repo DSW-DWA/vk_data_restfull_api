@@ -20,9 +20,6 @@ class UserCreate(BaseModel):
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 def get_current_token(token: str = Depends(oauth2_scheme)):
-    # В этом примере мы жестко задаем правильный токен (например, "secret-token")
-    # В реальном приложении можно проверять его в базе данных или другом хранилище
-    # В headers должно быть поле Authorization: Bearer secret-token
     if token != os.getenv("TOKEN"):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
